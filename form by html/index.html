@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0">
+    
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FORM</h1>
+        <br>
+        <!-- onsubmit="return validateForm()"  -->
+        <form name="myForm" onsubmit="return validateform()" method="post" action="https://www.google.com">
+            <div class="main_column">
+                <div class="column">
+                    <label for="student_name">NAME</label>
+                    <input name="student_name" id="student_name" type="text" minlength="5" maxlength="50" pattern="[A-Z,a-z, ]+" required><label id="name_error"></label>
+                    <br><br>
+                    <!-- <span class="error">enter</span> -->
+                </div>
+                <div class="column">
+                    <label for="email">EMAIL</label>
+                    <input type="email" name="email" id="email" required>
+                    <br><br>
+                </div>
+                <div class="column">
+                    <label for="phone">PHONE NO</label>
+                    <input type="text" id="phone" name="phone" pattern="[1-9]{1}[0-9]{9}" required title="Enter a correct phone number">
+                    <br><br>
+                    <!-- <span class="error1">error</span> -->
+                </div>
+                <div class="column">
+                    <label for="bits_id">BITS ID</label>
+                    <input type="text" id="bits_id" name="bits_id" pattern="[2]{1}[0]{1}[0-2]{1}[0-9]{1}[A,a,B,b]{1}[A,a,1-7]{1}[P,p]{1}[S,s]{1}[0-9]{4}[P,p,H,h,G,g]{1}" required title="Enter a valid BITS ID">
+                    <br><br>
+                </div>
+                <div class="hostel">
+                    <label for="hostel">HOSTEL</label>
+                    <select class="drop_down" name="hostel" id="hostel" placeholder="hostels" required>
+                        <option value="">select</option>
+                        <option value="meera">Meera</option>
+                        <option value="budh">Budh</option>
+                        <option value="ram">Ram</option>
+                        <option value="gandhi">Gandhi</option>
+                        <option value="krishna">Krishna</option>
+                        <option value="shankar">Shankar</option>
+                        <option value="vyas">Vyas</option>
+                        <option value="vishwakarna">Vishwakarna</option>
+                        <option value="bhagirath">bhagirath</option>
+                        <option value="rana pratap">Rana Pratap</option>
+                        <option value="ashok">Ashok</option>
+                        <option value="malviya">Malviya</option>
+                    </select>
+                    <br><br>
+                    <!-- TRIALS OF DROPDOWN -->
+                    <!-- <div class="cont_button">
+                        <button>blahh</button>
+                    </div> -->
+                    
+                    <!-- <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                        <div id="myDropdown" class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                      </div> -->
+                      <!-- <div>
+                        <button>Dropdown</button>
+                        {(
+                          <div>
+                            <p>Option A</p>
+                            <p>Option B</p>
+                            <p>Option C</p>
+                          </div>
+                        )}
+                      </div> -->
+                        
+                </div>
+                <div class="column">
+                    <label id="size">SELECT SIZE</label>
+                    <div class="col_rad">
+                        <input type="radio" value="S" name="size" required>S
+                        <input type="radio" value="M" name="size" required>M
+                        <input type="radio" value="L" name="size" required>L
+                    </div>
+                    <br>
+                    
+                </div>
+                <div class="column">
+                    <div>
+                        <a href="">Terms and conditions</a>
+                    </div>
+                    <input value="Agreed" class="check_box"type ="checkbox" id="check" required>
+                    <label>I agree</label>
+                    <br><br>
+                </div>
+            </div>
+            
+            <div class="row">
+                <button type="submit">submit</button>
+                <button onclick="myreset()">reset</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+<script>
+
+    function validateform() {
+        {
+            let x = document.forms["myForm"]["student_name"].value;
+            if (x == "") {
+                //alert("Name must be filled out");
+                document.forms["myForm"]["name_error"].value ="name should be entered";
+                return false;
+            }
+            if(x!=="") {
+                console.log("Name: ", x);
+                localStorage.setItem("Name: ", x);
+            }
+        }
+        {
+            let x = document.forms["myForm"]["email"].value;
+            if (x == "") {
+                //alert("Name must be filled out");
+                return false;
+            }
+            if(x!=="") {
+                console.log("Email: ", x);
+                localStorage.setItem("Email: ", x);
+            }
+        }
+        {
+            let x = document.forms["myForm"]["phone"].value;
+            if (x == "") {
+                //alert("Name must be filled out");
+                
+                return false;
+            }
+            if(x!=="") {
+                console.log("Phone No: ", x);
+                localStorage.setItem("Phone No: ", x);
+            }
+        }
+        {
+            let x = document.forms["myForm"]["bits_id"].value;
+            if (x == "") {
+                //alert("Name must be filled out");
+                
+                return false;
+            }
+            if(x!=="") {
+                console.log("BITS ID: ", x);
+                localStorage.setItem("BITS ID: ", x);
+            }
+        }
+        {
+            let x = document.forms["myForm"]["hostel"].value;
+            if (x == "") {
+                //alert("Name must be filled out");
+                
+                return false;
+            }
+            if(x!=="") {
+                console.log("Hostel: ", x);
+                localStorage.setItem("Hostel: ", x);
+            }
+        }
+        {
+            let x = document.forms["myForm"]["size"].value;
+            if (x == "") {
+                //alert("Name must be filled out");
+                
+                return false;
+            }
+            if(x!=="") {
+                console.log("Size: ", x);
+                localStorage.setItem("Size: ", x);
+            }
+        }
+        {
+            let x = document.forms["myForm"]["check"].value;
+            if (x == "") {
+                //alert("Name must be filled out");
+                return false;
+            }
+            if(x!=="") {
+                console.log("Term and conditions: ", x);
+                localStorage.setItem("Term and conditions: ", x);
+            }
+        }
+  
+
+//   var hostel = document.myForm.hostel.value;
+//   if(hostel.value=="") {
+//     // alert("Name must be filled out");
+//     document.myForm.hostel.focus();
+//     return false;
+//   }else {
+
+//   }
+  
+}
+
+
+    /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  var cnt=document.getElementById("myDropdown");
+  document.getElementById("myDropdown").classList.toggle("show");
+//   alert(cnt);
+}
+function myreset() {
+    var y = document.getElementsByTagName("input");
+    for(var i = 0; i< y.length;i++){
+        if(y[i].type == "radio") {
+            y[i].checked = false;
+        }
+    }
+    document.forms["myForm"]["student_name"].value ="";
+    document.forms["myForm"]["email"].value ="";
+    document.forms["myForm"]["phone"].value ="";
+    document.forms["myForm"]["bits_id"].value ="";
+    document.forms["myForm"]["hostel"].value="";
+    document.forms["myForm"]["check"].checked = false;
+
+
+    
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+    
+</script>
+</html>
